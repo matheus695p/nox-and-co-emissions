@@ -129,6 +129,48 @@ Feeature engineering:
 
 ## NN implementación
 
+Con el fin de evaluar los datasets generados anteriormente y seleccionar caracteristicas con las que se va a trabajar y establecer modelos baseline con el approach de deep learning, se evaluan 3 arquitecturas en todos los dataset. Los resultados son mostrados a continuación.
+
+
+### Arquitecturas probadas
+
+Las arquitecturas implementadas fueron:
+
+<p align="center">
+  <img src="./images/architectures.png">
+</p>
+
+Para la prevención de overfitting se usan capas de regularización con dropout y batchnormalization, además, se ocupan los callbacks de reduce learning rate on plateau y early stopping para detener los entrenamientos en los momentos antes del sobreajuste y rescatando los mejores pesos del error de validación.
+
+
+El config de hiper-parámetros de la red están en el script:
+
+```sh
+src/config_nn.py
+```
+
+### Resultados baseline
+
+Para CO (monoxido de carbono) se llega a los siguientes resultados:
+
+
+<p align="center">
+  <img src="./images/co_nn.png">
+</p>
+
+
+Un mae de 0.8314 con el dataset con un threshold de correlación de 0.9 y usando la arquitectura número 1 de la figura anterior, este resultado mismo si es baseline, encontró mejores resultados que en los trabajos [1], [2], [3] y [4], más adelante se analiza el ¿porque?
+
+
+Para NOX (óxidos de nitrogeno), no fue tan buena el resultado comparado con [1], que sigue siendo quien obtuvo una puntación de MAE: 7.91, mientras que el mejor resultaod se alcanzó con la arquitectura número 2 y con el dataset con treshold de 0.8 un MAE : 9.251. Por lo cual nos queda por mejorar
+
+
+<p align="center">
+  <img src="./images/nox_nn.png">
+</p>
+
+
+
 
 ## CNN implementación
 
@@ -137,8 +179,16 @@ Feeature engineering:
 
 
 
+# Bibliografía
 
 
+[1] Kaya, H., TÜFEKCİ, P., & Uzun, E. (2019). Predicting co and no x emissions from gas turbines: novel data and a benchmark pems. Turkish Journal of Electrical Engineering & Computer Sciences, 27(6), 4783-4796.
 
 
+[2] Skalska K, Miller JS, Ledakowicz S. Trends in NOx abatement: a review. Science of the Total Environment 2010; 408 (19): 3976-3989. doi: 10.1016/j.scitotenv.2010.06.001
 
+
+[3] Shakil M, Elshafei M, Habib MA, Maleki F, Soft sensor for NOx and O2 using dynamic neural networks. Computers & Electrical Engineering 2009; 35 (4): 578-586. doi: 10.1016/j.compeleceng.2008.08.007
+
+
+[4] MINXING SI, TYLER J. TARNOCZI, BRETT M. WIENS, AND KE DU, Development of Predictive Emissions Monitoring System Using Open Source Machine Learning Library – Keras: A Case Study on a Cogeneration Unit, IEEE Access, VOLUME 7, 2019
