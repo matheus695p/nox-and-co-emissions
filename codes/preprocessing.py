@@ -31,21 +31,21 @@ for i in range(1, 13):
 # limpiar los nulos
 df.dropna(inplace=True)
 
-# agregar un id a la fila para recuperar después
-# df.reset_index(drop=False, inplace=True)
-# df.rename(columns={"index": "id"}, inplace=True)
-
 # features
 features = list(df.columns)
 features.remove("year")
 for col in target_cols:
     features.remove(col)
 
-
 # fechas
-
 date = df[["year"]]
 date.reset_index(drop=True, inplace=True)
+
+# targets
+targets = df[target_cols]
+targets.reset_index(drop=True, inplace=True)
+
+
 # crear folder featured
 try_create_folder(path+"featured")
 
@@ -58,6 +58,7 @@ for thres in range(10, 19):
     # eliminar por correlación
     dataset = selection_by_correlation(dataset, threshold=thres)
     dataset = pd.concat([dataset, date], axis=1)
+    dataset = pd.concat([dataset, targets], axis=1)
     print("shape dataset:", dataset.shape)
     # guardar el dataset eliminado por corr
     thres = str(thres).replace(".", "_")
