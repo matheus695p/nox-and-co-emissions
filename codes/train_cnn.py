@@ -4,8 +4,8 @@ import pandas as pd
 import tensorflow as tf
 from sklearn.preprocessing import MinMaxScaler
 from src.config_cnn import arguments_parser
-from src.visualizations import training_history
-from src.visualizations import plot_multiple_xy_results
+from src.visualizations import (training_history, plot_multiple_xy_results)
+from src.clean_module import try_create_folder
 from src.evaluation_module import (get_model_summary, mae_evaluation)
 from src.utils import get_prime_factors, input_shape
 warnings.filterwarnings("ignore")

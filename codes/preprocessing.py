@@ -9,6 +9,10 @@ path = "data/"
 df = pd.read_csv(path+"data.csv")
 df = lowwer_rename(df)
 
+# data original
+original = df.copy()
+original.to_csv(path+"featured/original_data.csv", index=False)
+
 # variable objetivo
 target_cols = ["co", "nox"]
 
@@ -20,6 +24,10 @@ for col in target_cols:
 
 # agregar los log fatures
 df = log_features(df, columns)
+
+# guardar data logaritmica
+log_data = df.copy()
+log_data.to_csv(path+"featured/logaritmic_data.csv", index=False)
 
 # agregar variables retrasadas
 for i in range(1, 13):
@@ -44,7 +52,6 @@ date.reset_index(drop=True, inplace=True)
 # targets
 targets = df[target_cols]
 targets.reset_index(drop=True, inplace=True)
-
 
 # crear folder featured
 try_create_folder(path+"featured")

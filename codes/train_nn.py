@@ -4,9 +4,9 @@ import tensorflow as tf
 from sklearn.preprocessing import MinMaxScaler
 from src.config_nn import arguments_parser
 from src.open_module import ls
-from src.visualizations import training_history
+from src.clean_module import try_create_folder
+from src.visualizations import (training_history, plot_multiple_xy_results)
 from src.preprocessing_module import nn_preparation
-from src.visualizations import plot_multiple_xy_results
 from src.evaluation_module import (get_model_summary, mae_evaluation)
 warnings.filterwarnings("ignore")
 
@@ -16,7 +16,7 @@ path = "data/featured/"
 files = ls(path)
 
 # indice de la arquitectura probada
-indice = str(1)
+indice = str(4)
 # directorio de resultados
 folder_results = "nn_architectures"
 
@@ -56,32 +56,35 @@ for file in files:
     # modelo
     nn = tf.keras.Sequential()
 
-    # nn.add(tf.keras.layers.Dense(
-    #     2048, input_dim=x_train.shape[1], activation='relu'))
-    # nn.add(tf.keras.layers.BatchNormalization())
-    # nn.add(tf.keras.layers.Dropout(0.3))
-    # nn.add(tf.keras.layers.Dense(1024, activation='relu'))
-    # nn.add(tf.keras.layers.BatchNormalization())
-    # nn.add(tf.keras.layers.Dropout(0.3))
-    # nn.add(tf.keras.layers.Dense(1024, activation='relu'))
-    # nn.add(tf.keras.layers.BatchNormalization())
-    # nn.add(tf.keras.layers.Dropout(0.3))
-    # nn.add(tf.keras.layers.Dense(1024, activation='relu'))
-    # nn.add(tf.keras.layers.BatchNormalization())
-    # nn.add(tf.keras.layers.Dense(y_train.shape[1], activation='linear'))
-
+    # index 4
     nn.add(tf.keras.layers.Dense(
         2048, input_dim=x_train.shape[1], activation='relu'))
     nn.add(tf.keras.layers.BatchNormalization())
-    nn.add(tf.keras.layers.Dropout(0.2))
-    nn.add(tf.keras.layers.Dense(512, activation='relu'))
+    nn.add(tf.keras.layers.Dropout(0.3))
+    nn.add(tf.keras.layers.Dense(1024, activation='relu'))
+    nn.add(tf.keras.layers.BatchNormalization())
+    nn.add(tf.keras.layers.Dropout(0.3))
+    nn.add(tf.keras.layers.Dense(1024, activation='relu'))
+    nn.add(tf.keras.layers.BatchNormalization())
+    nn.add(tf.keras.layers.Dropout(0.3))
+    nn.add(tf.keras.layers.Dense(1024, activation='relu'))
     nn.add(tf.keras.layers.BatchNormalization())
     nn.add(tf.keras.layers.Dense(y_train.shape[1], activation='linear'))
 
+    # 3 index
+    # nn.add(tf.keras.layers.Dense(
+    #     2048, input_dim=x_train.shape[1], activation='relu'))
+    # nn.add(tf.keras.layers.BatchNormalization())
+    # nn.add(tf.keras.layers.Dropout(0.2))
+    # nn.add(tf.keras.layers.Dense(512, activation='relu'))
+    # nn.add(tf.keras.layers.BatchNormalization())
+    # nn.add(tf.keras.layers.Dense(y_train.shape[1], activation='linear'))
+
+    # index 5
     # nn.add(tf.keras.layers.Dense(
     #     4096, input_dim=x_train.shape[1], activation='relu'))
     # nn.add(tf.keras.layers.BatchNormalization())
-    # nn.add(tf.keras.layers.Dropout(0.3))
+    # nn.add(tf.keras.layers.Dropout(0.2))
     # nn.add(tf.keras.layers.Dense(y_train.shape[1], activation='linear'))
 
     # arquitectura usada
@@ -139,3 +142,7 @@ for file in files:
                             folder_name=folder_results,
                             filename=f"{indice}-{folder_name}")
     print(output)
+    # guardar la arquitectura
+    path_nn = "results/models"
+    try_create_folder(path_nn)
+    nn.save(path_nn+f"/{indice}_model.h5")
