@@ -1,4 +1,4 @@
-[![Build Status](https://www.repostatus.org/badges/latest/active_rst.txt)
+[![Build Status](https://www.repostatus.org/badges/latest/active.svg)
 
 #  NOX-and-CO-emissions
 
