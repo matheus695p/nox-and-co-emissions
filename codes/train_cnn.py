@@ -133,3 +133,7 @@ output = mae_evaluation(predictions, y_test, target_cols, cnn,
                         folder_name=folder_results,
                         filename=f"{indice}-{folder_name}")
 print(output)
+
+path_nn = "results/models"
+try_create_folder(path_nn)
+cnn.save(path_nn+f"/{indice}_model_cnn.h5")
