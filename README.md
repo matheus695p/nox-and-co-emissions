@@ -1,4 +1,4 @@
-[Build Status](https://www.repostatus.org/badges/latest/active.svg)
+![Build Status](https://www.repostatus.org/badges/latest/active.svg)
 
 #  NOX-and-CO-emissions
 
