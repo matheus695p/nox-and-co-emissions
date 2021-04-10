@@ -2,7 +2,7 @@ import warnings
 import pandas as pd
 import tensorflow as tf
 from sklearn.preprocessing import MinMaxScaler
-from src.config import arguments_parser
+from src.config_nn import arguments_parser
 from src.open_module import ls
 from src.visualizations import training_history
 from src.preprocessing_module import nn_preparation
@@ -16,7 +16,7 @@ path = "data/featured/"
 files = ls(path)
 
 # indice de la arquitectura probada
-indice = str(2)
+indice = str(1)
 # directorio de resultados
 folder_results = "nn_architectures"
 
@@ -71,9 +71,9 @@ for file in files:
     # nn.add(tf.keras.layers.Dense(y_train.shape[1], activation='linear'))
 
     nn.add(tf.keras.layers.Dense(
-        1024, input_dim=x_train.shape[1], activation='relu'))
+        2048, input_dim=x_train.shape[1], activation='relu'))
     nn.add(tf.keras.layers.BatchNormalization())
-    nn.add(tf.keras.layers.Dropout(0.3))
+    nn.add(tf.keras.layers.Dropout(0.2))
     nn.add(tf.keras.layers.Dense(512, activation='relu'))
     nn.add(tf.keras.layers.BatchNormalization())
     nn.add(tf.keras.layers.Dense(y_train.shape[1], activation='linear'))
