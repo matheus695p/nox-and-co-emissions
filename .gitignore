@@ -24,6 +24,7 @@ parts/
 sdist/
 var/
 wheels/
+
 pip-wheel-metadata/
 share/python-wheels/
 *.egg-info/
@@ -34,13 +35,14 @@ MANIFEST
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
+
 *.manifest
 *.spec
 
 # carpetas que no quiero agregar
 data/*.txt
 data/*.csv
-
+data/featured/*.csv
 # resultados de los modelos
 results/energy-model
 results/manufacturing-model
