@@ -144,7 +144,6 @@ def selection_by_correlation(dataset, threshold=0.5):
         dataset con las columnas eliminadas.
 
     """
-
     col_corr = set()
     corr_matrix = dataset.corr()
     for i in range(len(corr_matrix.columns)):
@@ -166,8 +165,8 @@ def nn_preparation(df, target_col):
     ----------
     df : datarame
         dataframe con todas las variables.
-    target_col : string
-        nombre de la columna target.
+    target_col : string or list
+        nombre de la/as columna/as target/s.
     Returns
     -------
     x : array
@@ -175,7 +174,10 @@ def nn_preparation(df, target_col):
     y : array
         target en numpy.
     """
-    y = df[[target_col]]
+    if len(target_col) == 1:
+        y = df[[target_col]]
+    else:
+        y = df[target_col]
     x = df.drop(columns=target_col)
     x = x.to_numpy()
     y = y.to_numpy()

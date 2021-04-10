@@ -141,7 +141,37 @@ def plot_sequence(predictions, real, fechas, indice, folder_name="nn"):
     fig.savefig(f"results/{folder_name}/{indice}_results.png")
 
 
-def plot_xy_results(predictions, real, folder_name="nn"):
+def plot_multiple_xy_results(predictions, y_test, target_cols, ind,
+                             folder_name="nn"):
+    """
+    Plotea lo resutltados de la red, cuando es con más de un input
+    Parameters
+    ----------
+    predictions : array
+        predicciones.
+    real : array
+        valores reales.
+    names : list
+        nombre de las columans target.
+    folder_name : string, optional
+        directorio donde se dejaran las carpetas. The default is "nn".
+    Returns
+    -------
+    Plot.
+    """
+    try_create_folder("results")
+    try_create_folder(f"results/{folder_name}")
+    for i in range(predictions.shape[1]):
+        print("Resultados:", target_cols[i], "...")
+        predi = predictions[:, i]
+        reali = y_test[:, i]
+        namei = target_cols[i]
+        plot_xy_results(predi, reali, index=ind, name=namei,
+                        folder_name=folder_name)
+
+
+def plot_xy_results(predictions, real, index=str(1), name="col",
+                    folder_name="nn"):
     """
     Plot sequence de la secuecnia
     Parameters
@@ -158,14 +188,18 @@ def plot_xy_results(predictions, real, folder_name="nn"):
     -------
     plot de prediciones vs real.
     """
+    plt.style.use('dark_background')
     letter_size = 20
     mae = np.abs(predictions - real).mean()
-    mae = round(mae, 2)
-    plt.style.use('dark_background')
+    mae = round(mae, 4)
+    # caracteristicas del dataset
+    mean = round(real.mean(), 1)
+    std = round(real.std(), 1)
     fig, ax = plt.subplots(1, figsize=(22, 12))
     plt.scatter(real, real, color='green')
     plt.scatter(real, predictions, color='orangered')
-    titulo = f"Predicciones vs real, error: {str(mae)}"
+    titulo = f"Predicciones {name} --> error: {str(mae)}" + "\n" +\
+        f"Caracteristicas: promedio: {mean}, desv: {std}"
     plt.title(titulo, fontsize=30)
     plt.xlabel('Real', fontsize=30)
     plt.ylabel(f'Predicción {folder_name}', fontsize=30)
@@ -175,3 +209,5 @@ def plot_xy_results(predictions, real, folder_name="nn"):
     # plt.ylim(0, 4600)
     # plt.xlim(0, 4600)
     plt.show()
+    path = f"results/{folder_name}/{index}-{name}.png"
+    fig.savefig(path)
