@@ -35,6 +35,7 @@ gast==0.3.3
 google-auth==1.28.0
 google-auth-oauthlib==0.4.3
 google-pasta==0.2.0
+graphviz==0.16
 grpcio==1.32.0
 gym==0.18.0
 h5py==2.10.0
@@ -93,6 +94,7 @@ pyasn1-modules==0.2.8
 pycodestyle @ file:///home/ktietz/src/ci_mi/pycodestyle_1612807597675/work
 pycparser @ file:///tmp/build/80754af9/pycparser_1594388511720/work
 pydocstyle @ file:///tmp/build/80754af9/pydocstyle_1616182067796/work
+pydot==1.4.2
 pyflakes @ file:///home/ktietz/src/ci_ipy2/pyflakes_1612551159640/work
 pyglet==1.5.0
 Pygments @ file:///tmp/build/80754af9/pygments_1615143339740/work
