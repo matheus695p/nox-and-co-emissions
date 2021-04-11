@@ -117,10 +117,21 @@ Targets:
 La idea con la que trataré el problema será:
 
 * clean data: valores faltantes, vacios, 
-* preprocessing: ordenar y dejar listo para etapa de feature engineering
+* preprocessing: EDA, ordenar y dejar listo para etapa de feature engineering
 * feature engineering: lag values, log(x), log(lag(x)), analisis de correlación por pearson, eliminando columnas que estén altamente correlacionadas 
 * neural nets: redes dense, diferentes arquitecturas en los dataset tratados para distintos valores threshold de correlación entre columnas
 * conv nets: redes convolucionales para hacer el end-to-end de la selección de caracteristicas
+
+## EDA:
+
+Veamos desbalance en la data:
+
+
+<p align="center">
+  <img src="./images/pairplots.png">
+</p>
+
+
 
 ## Feature Engineering:
 
