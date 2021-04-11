@@ -140,6 +140,14 @@ Kernel distributions estimations:
 </p>
 
 
+Distribución de las características de train y test:
+
+
+https://user-images.githubusercontent.com/61805388/114316484-c7735980-9ad1-11eb-8d2d-1f4f0a43d09a.mp4
+
+
+
+
 
 ## Feature Engineering:
 
