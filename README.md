@@ -82,6 +82,10 @@ Los sistemas de monitoreo predictivo de emisiones (PEMS) son herramientas import
 
 Los cuales contienen 5 años de información de una turbina de gas para de CO y NOx. Analizamos los datos utilizando deep learning para presentar información útil sobre las predicciones de emisiones. Además, presentamos un procedimiento experimental de referencia para la comparabilidad de trabajos futuros.
 
+
+Para hacer reproducibles los resultados al igual que en los papers se hará testing con los años 2014 y 2015.
+
+
 ## Diccionario de datos
 
 Features:
@@ -183,16 +187,29 @@ Con el proposito de resolver el problema end-to-end, sin pasar, entregamos el da
 
 La arquitectura de CNN propuesta toma lo matrices de 1 canal (psedo imagenes de 1 color) como entrada. La arquitectura propuesta para la extracción de características tiene el siguiente esquema. Cada vector que antes entraba a la red Dense, ahora se transforma en una matriz de (13, 18).
 
+* Primera arquitectura
+
 
 <p align="center">
   <img src="./images/cnn_architecture.png">
 </p>
 
 
+* Segunda arquitectura
+
+
+<p align="center">
+  <img src="./images/cnn_architecture2.png">
+</p>
+
+
+
 ### Baseline CNN como extractor de caracteristicas
 
 Para el caso anterior de redes neuronales fully connected, fueron dos las arqutiecturas que entregaron un buen resultado y que por separado eran los mejoras. Las CNN es una sola arquitectura, que plantea resultados bastante interesantes
 
+
+1) Arquitectura
 
 <p align="center">
   <img src="./images/co_cnn.png">
@@ -202,6 +219,24 @@ Para el caso anterior de redes neuronales fully connected, fueron dos las arquti
 <p align="center">
   <img src="./images/nox_cnn.png">
 </p>
+
+
+
+2) Arquitectura
+
+<p align="center">
+  <img src="./images/co_cnn2.png">
+</p>
+
+
+<p align="center">
+  <img src="./images/nox_cnn2.png">
+</p>
+
+
+
+
+
 
 
 # Bibliografía
