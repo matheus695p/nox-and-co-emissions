@@ -13,12 +13,6 @@ packaged.yaml
 .Python
 
 develop-eggs/
-A
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
 lib64/
 parts/
 sdist/
@@ -164,8 +158,6 @@ config.ini
 
 # AWS
 .aws-sam
-
-# png
 
 
 # Models
