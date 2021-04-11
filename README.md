@@ -142,7 +142,9 @@ Kernel distributions estimations:
 
 Distribución de las características de train y test:
 
-[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://user-images.githubusercontent.com/61805388/114316484-c7735980-9ad1-11eb-8d2d-1f4f0a43d09a.mp4)
+[![Watch the video](<p align="center">
+  <img src="./images/dist/kernel_test_afdp.png">
+</p)](https://user-images.githubusercontent.com/61805388/114316484-c7735980-9ad1-11eb-8d2d-1f4f0a43d09a.mp4)
 
 https://user-images.githubusercontent.com/61805388/114316484-c7735980-9ad1-11eb-8d2d-1f4f0a43d09a.mp4
 
