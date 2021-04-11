@@ -1,7 +1,10 @@
 import os
 import numpy as np
+import seaborn as sns
 import matplotlib.pyplot as plt
+from matplotlib import rcParams
 from src.clean_module import try_create_folder
+sns.set(font_scale=1.5)
 plt.style.use('dark_background')
 
 
@@ -211,3 +214,119 @@ def plot_xy_results(predictions, real, index=str(1), name="col",
     plt.show()
     path = f"results/{folder_name}/{index}-{name}.png"
     fig.savefig(path)
+
+
+def pairplot_sns(df, name="Entrenamiento"):
+    """
+    Pairplot del dataframe insertado
+
+    Parameters
+    ----------
+    df : dataframe
+        dataframe a realizar el pairplot.
+    name : string, optional
+        nombre del gráfico. The default is "Entrenamiento".
+
+    Returns
+    -------
+    Pairplot.
+
+    """
+    length = len(list(df.columns))
+    sns.set(font_scale=0.75 * length)
+    plt.style.use('dark_background')
+    pplot = sns.pairplot(df)
+    pplot.fig.set_figwidth(7.5*length)
+    pplot.fig.set_figheight(7.5*length)
+    pplot.set(title=name)
+
+
+def pairgrid_plot(df, name="Entrenamiento"):
+    """
+    Pair grid del dataframe insertado
+    Parameters
+    ----------
+    df : dataframe
+        dataframe a realizar el pairplot.
+    name : string, optional
+        nombre del gráfico. The default is "Entrenamiento".
+
+    Returns
+    -------
+    Pairgrid plot.
+
+    """
+    length = len(list(df.columns))
+    if length <= 2:
+        sns.set(font_scale=0.75 * length)
+        plt.style.use('dark_background')
+        g = sns.PairGrid(df)
+        g.map_upper(sns.histplot)
+        g.map_lower(sns.kdeplot, fill=True)
+        g.map_diag(sns.histplot, kde=True)
+        g.fig.set_figwidth(7.5*length)
+        g.fig.set_figheight(7.5*length)
+        g.set(title=name)
+    else:
+        sns.set(font_scale=15)
+        plt.style.use('dark_background')
+        g = sns.PairGrid(df)
+        g.map_upper(sns.histplot)
+        g.map_lower(sns.kdeplot, fill=True)
+        g.map_diag(sns.histplot, kde=True)
+        g.fig.set_figwidth(length/2)
+        g.fig.set_figheight(length/2)
+        g.set(title=name)
+
+
+def violinplot(df, col, name="Entrenamiento"):
+    """
+    Violin plot de la columna de un dataframe
+
+    Parameters
+    ----------
+    df : dataframe
+        dataframe a realizar el pairplot.
+    col : string
+        nombre de la columna a realizar el violinplot.
+    name : string, optional
+        nombre del gráfico. The default is "Entrenamiento".
+
+    Returns
+    -------
+    Violin plot de la columna.
+
+    """
+    rcParams['figure.figsize'] = 15, 15
+    g = sns.violinplot(y=col, data=df)
+    g.set_yticklabels(g.get_yticks(), size=30)
+    g.axes.set_title(name, fontsize=40)
+    g.set_ylabel(col, fontsize=40)
+    plt.show()
+
+
+def kernel_density_estimation(df, col, name="Entrenamiento", bw_adjust=0.1):
+    """
+    Estimación de la densidad a través de un kernel
+
+    Parameters
+    ----------
+    df : dataframe
+        dataframe a realizar el pairplot.
+    col : string
+        nombre de la columna a realizar el violinplot.
+    name : string, optional
+        nombre del gráfico. The default is "Entrenamiento".
+    bw_adjust : float, optional
+        Ajuste de la distribución. The default is 0.1.
+    Returns
+    -------
+    Estimación de la distribución de la columna.
+
+    """
+    sns.set(font_scale=1.5)
+    plt.style.use('dark_background')
+    pplot = sns.displot(df, x=col, kind="kde", bw_adjust=bw_adjust)
+    pplot.fig.set_figwidth(10)
+    pplot.fig.set_figheight(8)
+    pplot.set(title=name)
