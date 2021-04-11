@@ -124,7 +124,15 @@ La idea con la que trataré el problema será:
 
 ## EDA:
 
-Veamos desbalance en la data:
+Veamos desbalance en la data en las columnas target:
+
+
+<p align="center">
+  <img src="./images/pairplots.png">
+</p>
+
+
+Kernel distributions estimations:
 
 
 <p align="center">
