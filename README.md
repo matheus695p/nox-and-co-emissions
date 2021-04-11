@@ -136,7 +136,7 @@ Kernel distributions estimations:
 
 
 <p align="center">
-  <img src="./images/pairplots.png">
+  <img src="./images/kernel_distributions.png">
 </p>
 
 
