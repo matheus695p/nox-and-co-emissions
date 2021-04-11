@@ -263,8 +263,15 @@ Para el caso anterior de redes neuronales fully connected, fueron dos las arquti
 </p>
 
 
+# Comentarios de Baseline Preliminar
 
-
+* Hay un desbalance en los histogramas de las columnas target (data desbalanceada)
+* Hay que probar hacer dos predictores y ver si mejora (el backpropagation puede estar favoreciendo la predicción de un target)
+* Mejorar funciones de costo (mse se quedó corto) quizás hacer una función de costos ponderadora (dado que en los lugares donde hay desbalance de data se equivoca más la red)
+* Oversampling techniques, smothe, vae's o gan's para generar más data en los lugares donde no hay disponible, hay que probar al menos las dos primeras
+* End-to-end aproach es el mejor, se dejaran todas las características y se haré la extracción con capas convolucionales, así que nos iremos por esa línea tratar de hacer algo no visto en los papers (quizás ayudar a las redes dense con técnicas de reducción de dimensionalidad, Kernel PCA o Autoencoders)
+* Probar más tamaños de kernels, sobre todo cuando ocupemos técnicas de oversampling
+* Encontrar un mejor modelo que los vistos en los papers (ya encontramos uno para la predicción de mónoxido de carbono, queda hacerlo mejor con el NOX)
 
 
 
