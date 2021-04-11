@@ -74,11 +74,11 @@ tree del proyecto
 
 ```
 
-# Caso a resolver:
+# Introducción:
 
 Los sistemas de monitoreo predictivo de emisiones (PEMS) son herramientas importantes para la validación y respaldo de costosos sistemas de monitoreo continuo de emisiones utilizados en centrales eléctricas basadas en turbinas de gas. Su implementación se basa en la disponibilidad de datos apropiados y ecológicamente válidos (superintendencia de medio ambiente debe estar de acuerdo). En este repositorio, usamos un conjunto de datos PEMS
 
-* [![url a los datos(https://archive.ics.uci.edu/ml/datasets/Gas+Turbine+CO+and+NOx+Emission+Data+Set)
+* https://archive.ics.uci.edu/ml/datasets/Gas+Turbine+CO+and+NOx+Emission+Data+Set
 
 Los cuales contienen 5 años de información de una turbina de gas para de CO y NOx. Analizamos los datos utilizando deep learning para presentar información útil sobre las predicciones de emisiones. Además, presentamos un procedimiento experimental de referencia para la comparabilidad de trabajos futuros.
 
@@ -170,13 +170,38 @@ Para NOX (óxidos de nitrogeno), no fue tan buena el resultado comparado con [1]
 </p>
 
 
+Los conclusiones de las pruebas del baseline fueron, que las redes 
 
 
 ## CNN implementación
 
+Con el proposito de resolver el problema end-to-end, sin pasar, entregamos el dataset con las 234 caracteristicas a una red CNN que actuara como extractor de caracteristicas para regresión lineal, esto con el fin de no tener que preocuparnos por seleccionar las mejores caracteristicas.
 
 
 
+### Arquitectura usada
+
+La arquitectura de CNN propuesta toma lo matrices de 1 canal (psedo imagenes de 1 color) como entrada. La arquitectura propuesta para la extracción de características tiene el siguiente esquema. Cada vector que antes entraba a la red Dense, ahora se transforma en una matriz de (13, 18).
+
+
+<p align="center">
+  <img src="./images/cnn_architecture.png">
+</p>
+
+
+### Baseline CNN como extractor de caracteristicas
+
+Para el caso anterior de redes neuronales fully connected, fueron dos las arqutiecturas que entregaron un buen resultado y que por separado eran los mejoras. Las CNN es una sola arquitectura, que plantea resultados bastante interesantes
+
+
+<p align="center">
+  <img src="./images/co_cnn.png">
+</p>
+
+
+<p align="center">
+  <img src="./images/nox_cnn.png">
+</p>
 
 
 # Bibliografía
