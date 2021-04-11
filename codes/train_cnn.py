@@ -16,7 +16,7 @@ path = "data/featured/"
 file = "featured_data.csv"
 
 # indice de la arquitectura probada
-indice = str(1)
+indice = str(2)
 # directorio de resultados
 folder_results = "cnn_architectures"
 
@@ -60,27 +60,56 @@ x_train = np.reshape(x_train, (-1, shape[0], shape[1], 1))
 x_test = np.reshape(x_test, (-1, shape[0], shape[1], 1))
 
 # modelo
+# cnn = tf.keras.Sequential()
+# cnn.add(tf.keras.layers.Conv2D(32, input_shape=x_train.shape[1:],
+#                                kernel_size=(10, 10), padding="same",
+#                                activation="relu"))
+# cnn.add(tf.keras.layers.Dropout(0.2))
+# # cnn.add(tf.keras.layers.MaxPooling2D(pool_size=(1, 2)))
+# cnn.add((tf.keras.layers.Conv2D(64, (5, 5), padding="same",
+#                                 activation="relu")))
+# cnn.add(tf.keras.layers.Dropout(0.2))
+# cnn.add((tf.keras.layers.Conv2D(128, (3, 3), padding="same",
+#                                 activation="relu")))
+# cnn.add(tf.keras.layers.Dropout(0.2))
+# # cnn.add(tf.keras.layers.MaxPooling2D(pool_size=(1, 3)))
+# cnn.add(tf.keras.layers.Flatten())
+# cnn.add(tf.keras.layers.Dense(1024, activation='relu'))
+# cnn.add(tf.keras.layers.BatchNormalization())
+# cnn.add(tf.keras.layers.Dropout(0.2))
+# cnn.add(tf.keras.layers.Dense(512, activation='relu'))
+# cnn.add(tf.keras.layers.BatchNormalization())
+# cnn.add(tf.keras.layers.Dense(y_train.shape[1], activation='linear'))
+# cnn.summary()
+
 cnn = tf.keras.Sequential()
-cnn.add(tf.keras.layers.Conv2D(32, input_shape=x_train.shape[1:],
+cnn.add(tf.keras.layers.Conv2D(16, input_shape=x_train.shape[1:],
                                kernel_size=(10, 10), padding="same",
                                activation="relu"))
 cnn.add(tf.keras.layers.Dropout(0.2))
 # cnn.add(tf.keras.layers.MaxPooling2D(pool_size=(1, 2)))
+cnn.add((tf.keras.layers.Conv2D(32, (5, 5), padding="same",
+                                activation="relu")))
+cnn.add(tf.keras.layers.Dropout(0.2))
 cnn.add((tf.keras.layers.Conv2D(64, (5, 5), padding="same",
                                 activation="relu")))
 cnn.add(tf.keras.layers.Dropout(0.2))
-cnn.add((tf.keras.layers.Conv2D(128, (3, 3), padding="same",
+cnn.add((tf.keras.layers.Conv2D(128, (5, 5), padding="same",
                                 activation="relu")))
 cnn.add(tf.keras.layers.Dropout(0.2))
+cnn.add((tf.keras.layers.Conv2D(256, (5, 5), padding="same",
+                                activation="relu")))
+cnn.add(tf.keras.layers.Dropout(0.2))
+
 # cnn.add(tf.keras.layers.MaxPooling2D(pool_size=(1, 3)))
 cnn.add(tf.keras.layers.Flatten())
-cnn.add(tf.keras.layers.Dense(1024, activation='relu'))
+cnn.add(tf.keras.layers.Dense(2048, activation='relu'))
 cnn.add(tf.keras.layers.BatchNormalization())
 cnn.add(tf.keras.layers.Dropout(0.2))
-cnn.add(tf.keras.layers.Dense(512, activation='relu'))
-cnn.add(tf.keras.layers.BatchNormalization())
+cnn.add(tf.keras.layers.Dense(1024, activation='relu'))
 cnn.add(tf.keras.layers.Dense(y_train.shape[1], activation='linear'))
 cnn.summary()
+
 
 # compilar modelo
 cnn.compile(loss='mean_squared_error',
