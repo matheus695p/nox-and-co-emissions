@@ -142,10 +142,10 @@ Kernel distributions estimations:
 
 Distribución de las características de train y test:
 
-[![Ver distribuciones training](<p align="center"><img src="./images/dist/kernel_train_afdp.png"></p)](https://user-images.githubusercontent.com/61805388/114316484-c7735980-9ad1-11eb-8d2d-1f4f0a43d09a.mp4)
+[![Ver distribuciones training](<p align="center"><img src="./images/dist/kernel_train_afdp.png">](https://user-images.githubusercontent.com/61805388/114316484-c7735980-9ad1-11eb-8d2d-1f4f0a43d09a.mp4)
 
 
-[![Ver distribuciones testing](<p align="center"><img src="./images/dist/kernel_test_afdp.png"></p)](https://user-images.githubusercontent.com/61805388/114316851-6a78a300-9ad3-11eb-8f67-90249c6e40a5.mp4)
+[![Ver distribuciones testing](<p align="center"><img src="./images/dist/kernel_test_afdp.png">)](https://user-images.githubusercontent.com/61805388/114316851-6a78a300-9ad3-11eb-8f67-90249c6e40a5.mp4)
 
 
 
