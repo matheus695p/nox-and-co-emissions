@@ -179,7 +179,7 @@ Con el proposito de resolver el problema end-to-end, sin pasar, entregamos el da
 
 
 
-### Arquitectura usada
+### Arquitectura usada como baseline
 
 La arquitectura de CNN propuesta toma lo matrices de 1 canal (psedo imagenes de 1 color) como entrada. La arquitectura propuesta para la extracción de características tiene el siguiente esquema. Cada vector que antes entraba a la red Dense, ahora se transforma en una matriz de (13, 18).
 
