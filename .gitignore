@@ -39,6 +39,7 @@ MANIFEST
 *.manifest
 *.spec
 
+*.mp4
 # carpetas que no quiero agregar
 data/*.txt
 data/*.csv
