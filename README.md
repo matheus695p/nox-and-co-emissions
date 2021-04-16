@@ -76,7 +76,7 @@ tree del proyecto
 
 # Introducción:
 
-Los sistemas de monitoreo predictivo de emisiones (PEMS) son herramientas importantes para la validación y respaldo de costosos sistemas de monitoreo continuo de emisiones utilizados en centrales eléctricas basadas en turbinas de gas. Su implementación se basa en la disponibilidad de datos apropiados y ecológicamente válidos (superintendencia de medio ambiente debe estar de acuerdo). En este repositorio, usamos un conjunto de datos PEMS
+Los sistemas de monitoreo predictivo de emisiones (PEMS) son herramientas importantes para la validación y respaldo de costosos sistemas de monitoreo continuo de emisiones utilizados en centrales eléctricas basadas en turbinas de gas. Su implementación se basa en la disponibilidad de datos apropiados y ecológicamente válidos (superintendencia de medio ambiente debe estar de acuerdo). En este repositorio, voy a usar un conjunto de datos PEMS, que saqué de kaggle.
 
 * https://archive.ics.uci.edu/ml/datasets/Gas+Turbine+CO+and+NOx+Emission+Data+Set
 
